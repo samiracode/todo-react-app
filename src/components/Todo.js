@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const Todo = () => {
+const Todo = ({ text, todos, setTodos }) => {
     return (
        <div className="todo">
-        <li className="item">Hejjjj</li>
+        <li className="item">{text}</li>
         <button className="complete-btn"><i className="fas fa-check"></i></button>
         <button className="trash-btn"><i className="fas fa-trash"></i></button>
        </div>

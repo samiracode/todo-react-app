@@ -14,6 +14,7 @@ const TodoList = ({ todos, setTodos }) => {
                id={todo.id} 
                todos={todos} 
                setTodos={setTodos}
+               todo={todo}
              />
           ))}
         </ul>

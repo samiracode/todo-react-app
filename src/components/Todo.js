@@ -1,12 +1,25 @@
 import React from "react";
 
 
-const Todo = ({ text, todos, setTodos }) => {
+const Todo = ({ text, todos, setTodos, todo }) => {
+    const deletHandler = () => {
+        setTodos(todos.filter(element => element.id !== todo.id))
+    }
+    const completeHandler = () => {
+        setTodos(todos.map(item => {
+            if(item.id === todo.id) {
+                return {
+                    ...item, completed: !item.completed
+                }
+            }
+            return item;
+        })) 
+    }
     return (
        <div className="todo">
         <li className="item">{text}</li>
-        <button className="complete-btn"><i className="fas fa-check"></i></button>
-        <button className="trash-btn"><i className="fas fa-trash"></i></button>
+        <button onClick={completeHandler} className="complete-btn"><i className="fas fa-check"></i></button>
+        <button onClick={deletHandler} className="trash-btn"><i className="fas fa-trash"></i></button>
        </div>
     );
 }

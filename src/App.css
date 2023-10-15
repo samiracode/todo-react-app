@@ -20,8 +20,9 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
+
+
 form input,
 form button {
   padding: 0.5rem;

@@ -5,6 +5,7 @@ import Form from './components/Form';
 import TodoList from './components/TodoLIst';
 
 function App() {
+  // Local Storage
   const storedTodos = JSON.parse(localStorage.getItem('todos'))
   
   // Our State
@@ -12,10 +13,7 @@ function App() {
   const [todos, setTodos] = useState(storedTodos);
   const [ status, setStatus] = useState("all")
   const [ filteredTodos, setFilterTodos ] = useState([])
-
-  // Run Once When The app Starts
   
-
   //Use Effect
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
@@ -60,8 +58,6 @@ function App() {
         setTodos={setTodos} 
         filteredTodos={filteredTodos}
       />
-      
-      
     </div>
   );
 }

@@ -11,10 +11,22 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [ status, setStatus] = useState("all")
   const [ filteredTodos, setFilterTodos ] = useState([])
-  // Run Once When The app Starts
 
+  // Run Once When The app Starts
+  useEffect(() => {
+    localStorage.setTodos('todos', JSON.stringify(todos));
+  }, [todos]);
 
   //Use Effect
+  
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getTodos('todos'));
+    if (todos) {
+    setTodos(todos);
+    }
+  }, []);
+
   useEffect(() => {
     filterHandler();
   }, [todos, status]);
@@ -34,6 +46,8 @@ function App() {
     }
   }
   //Local Storage
+  localStorage.setItem('todos', JSON.stringify(todos));
+
 
   
 
